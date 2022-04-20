@@ -28,130 +28,160 @@ class _SignInState extends State<SignIn> {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   )),
-              SizedBox(height: context.dynamicHeight(0.02)),
-              SizedBox(height: context.dynamicHeight(0.04)),
-              const TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: 'Optional Group Special Code',
-                    labelText: 'Optional Group Special Code',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
-              SizedBox(height: context.dynamicHeight(0.04)),
-              TextField(
-                controller: inputController,
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                    hintText: 'Email Adress',
-                    labelText: 'Email Adress',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
-              SizedBox(height: context.dynamicHeight(0.04)),
-              TextField(
-                obscureText: true,
-                obscuringCharacter: '*',
-                enableSuggestions: false,
-                controller: passwordController,
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    //enabledBorder: OutlineInputBorder(
-                    //  borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
-              SizedBox(height: context.dynamicHeight(0.04)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      "Forgot Your Password",
-                      style: TextStyle(color: Colors.grey.shade400),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: context.dynamicHeight(0.10)),
-              Center(
-                child: Container(
-                  height: context.dynamicHeight(0.07),
-                  width: context.dynamicWidth(0.9),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xff21074f)),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      Text(
-                        'Sign In',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: context.dynamicHeight(0.01)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account?",
-                      style: TextStyle(color: Colors.grey.shade600)),
-                  InkWell(
-                    onTap: () {
-                      context.navigateToPage(SignUp());
-                    },
-                    child: const Text(' Sign Up',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
+              context.emptySizedHeightBoxHigh,
+              buildPrivateCodeTextField(),
+              context.emptySizedHeightBoxLow,
+              buildEmailTextField(),
+              context.emptySizedHeightBoxLow,
+              buildPassTextField(),
+              context.emptySizedHeightBoxLow,
+              buildForgetPassTextButton(),
+              context.emptySizedHeightBoxHigh,
+              buildSignInButton(context),
+              context.emptySizedHeightBoxLow,
+              buildSignUpTextButton(context),
               Divider(height: context.dynamicHeight(0.06), color: Colors.black),
-              Center(
-                child: GestureDetector(
-                  onTap: (() {}),
-                  child: Container(
-                    height: context.dynamicHeight(0.06),
-                    width: context.dynamicWidth(0.7),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.black, Colors.black])),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
-                        Icon(
-                          AntDesign.google,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          'Sign in with Google',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
+              buildSignInGoogleButton(context),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
+
+  TextField buildPrivateCodeTextField() {
+    return const TextField(
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                  hintText: 'Optional Group Special Code',
+                  labelText: 'Optional Group Special Code',
+                  labelStyle: TextStyle(color: Colors.black),
+                  //border: OutlineInputBorder(),
+                  // enabledBorder: OutlineInputBorder(
+                  //     borderSide: BorderSide(color: Colors.black)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            );
+  }
+
+  TextField buildEmailTextField() {
+    return TextField(
+              controller: inputController,
+              cursorColor: Colors.black,
+              decoration: const InputDecoration(
+                  hintText: 'Email Adress',
+                  labelText: 'Email Adress',
+                  labelStyle: TextStyle(color: Colors.black),
+                  //border: OutlineInputBorder(),
+                  // enabledBorder: OutlineInputBorder(
+                  //     borderSide: BorderSide(color: Colors.black)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            );
+  }
+
+  TextField buildPassTextField() {
+    return TextField(
+              obscureText: true,
+              obscuringCharacter: '*',
+              enableSuggestions: false,
+              controller: passwordController,
+              cursorColor: Colors.black,
+              decoration: const InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.black),
+                  //border: OutlineInputBorder(),
+                  //enabledBorder: OutlineInputBorder(
+                  //  borderSide: BorderSide(color: Colors.black)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            );
+  }
+
+  Row buildForgetPassTextButton() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    "Forgot Your Password",
+                    style: TextStyle(color: Colors.grey.shade400),
                   ),
+                )
+              ],
+            );
+  }
+
+  Center buildSignInButton(BuildContext context) {
+    return Center(
+              child: Container(
+                height: context.dynamicHeight(0.07),
+                width: context.dynamicWidth(0.9),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xff21074f)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Text(
+                      'Sign In',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ),
+            );
+  }
+
+  Row buildSignUpTextButton(BuildContext context) {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account?",
+                    style: TextStyle(color: Colors.grey.shade600)),
+                InkWell(
+                  onTap: () {
+                    context.navigateToPage(SignUp());
+                  },
+                  child: const Text(' Sign Up',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ],
+            );
+  }
+
+  Center buildSignInGoogleButton(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        onTap: (() {}),
+        child: Container(
+          height: context.dynamicHeight(0.06),
+          width: context.dynamicWidth(0.7),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.black, Colors.black])),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [
+              Icon(
+                AntDesign.google,
+                color: Colors.white,
+              ),
+              Text(
+                'Sign in with Google',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              )
             ],
           ),
         ),

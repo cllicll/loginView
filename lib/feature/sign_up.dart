@@ -23,8 +23,7 @@ class _SignUpState extends State<SignUp> {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   )),
-              SizedBox(height: context.dynamicHeight(0.02)),
-              SizedBox(height: context.dynamicHeight(0.04)),
+              context.emptySizedHeightBoxHigh,
               const TextField(
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
@@ -37,7 +36,7 @@ class _SignUpState extends State<SignUp> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
-              SizedBox(height: context.dynamicHeight(0.02)),
+              context.emptySizedHeightBoxLow,
               const TextField(
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
@@ -50,7 +49,7 @@ class _SignUpState extends State<SignUp> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
-              SizedBox(height: context.dynamicHeight(0.02)),
+              context.emptySizedHeightBoxLow,
               const TextField(
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
@@ -63,7 +62,7 @@ class _SignUpState extends State<SignUp> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
-              SizedBox(height: context.dynamicHeight(0.02)),
+              context.emptySizedHeightBoxLow,
               const TextField(
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
@@ -76,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
-              SizedBox(height: context.dynamicHeight(0.02)),
+              context.emptySizedHeightBoxLow,
               const TextField(
                 obscureText: true,
                 obscuringCharacter: '*',
@@ -91,29 +90,33 @@ class _SignUpState extends State<SignUp> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black))),
               ),
-              SizedBox(height: context.dynamicHeight(0.10)),
-              Center(
-                child: Container(
-                  height: context.dynamicHeight(0.07),
-                  width: context.dynamicWidth(0.9),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xff21074f)),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      Text(
-                        'Sign Up',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              context.emptySizedHeightBoxHigh,
+              buildSignUpButton(context),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Center buildSignUpButton(BuildContext context) {
+    return Center(
+      child: Container(
+        height: context.dynamicHeight(0.07),
+        width: context.dynamicWidth(0.9),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: const Color(0xff21074f)),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            Text(
+              'Sign Up',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );
