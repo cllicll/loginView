@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
+import 'widgets/sign_up_widget.dart';
+
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
@@ -24,72 +26,15 @@ class _SignUpState extends State<SignUp> {
                     fontWeight: FontWeight.bold,
                   )),
               context.emptySizedHeightBoxHigh,
-              const TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: 'First & Last Name',
-                    labelText: 'First & Last Name',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
+              buildNameTextField(),
               context.emptySizedHeightBoxLow,
-              const TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: 'Email',
-                    labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
+              buildEmailTextField(),
               context.emptySizedHeightBoxLow,
-              const TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: 'Mobile Phone',
-                    labelText: 'Mobile Phone',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
+              buildPhoneTextField(),
               context.emptySizedHeightBoxLow,
-              const TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    hintText: 'Group Special Code (optional)',
-                    labelText: 'Group Special Code (optional)',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
+              buildCodeTextField(),
               context.emptySizedHeightBoxLow,
-              const TextField(
-                obscureText: true,
-                obscuringCharacter: '*',
-                enableSuggestions: false,
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: TextStyle(color: Colors.black),
-                    //border: OutlineInputBorder(),
-                    //enabledBorder: OutlineInputBorder(
-                    //  borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black))),
-              ),
+              buildPasswordTextField(),
               context.emptySizedHeightBoxHigh,
               buildSignUpButton(context),
             ],
@@ -99,26 +44,5 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Center buildSignUpButton(BuildContext context) {
-    return Center(
-      child: Container(
-        height: context.dynamicHeight(0.07),
-        width: context.dynamicWidth(0.9),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: const Color(0xff21074f)),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            Text(
-              'Sign Up',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  
 }
